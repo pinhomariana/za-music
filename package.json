@@ -35,11 +35,13 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
+    "@svgr/webpack": "^8.1.0",
     "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.35.0",
     "globals": "^15.9.0",
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "url-loader": "^4.1.1"
   }
 }

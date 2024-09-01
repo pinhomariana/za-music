@@ -19,17 +19,17 @@ export default [
     rules: {
       ...prettierConfig.rules,
       semi: ['error', 'always'],
-      quotes: ['error', 'single'], // Ensure ESLint uses single quotes
       'prettier/prettier': [
         'error',
         {
-          singleQuote: true, // Ensure Prettier uses single quotes
+          singleQuote: true,
           printWidth: 100,
           tabWidth: 2,
           trailingComma: 'all',
           jsxBracketSameLine: false,
         },
       ],
+      'no-unused-vars': 'warn',
     },
   },
 ];
