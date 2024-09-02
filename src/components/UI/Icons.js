@@ -7,6 +7,7 @@ import { ReactComponent as MusicIcon } from 'assets/music.svg';
 import { ReactComponent as ArrowcIcon } from 'assets/arrow.svg';
 import { ReactComponent as SerchIcon } from 'assets/search.svg';
 import { ReactComponent as HeartIcon } from 'assets/heart.svg';
+import { ReactComponent as Logo } from 'assets/logo.svg';
 
 const Play = styled(PlayIcon)`
   fill: ${(props) => props.color || 'white'};
@@ -77,4 +78,5 @@ export {
   ArrowRight,
   Search,
   HeartIcon,
+  Logo,
 };
