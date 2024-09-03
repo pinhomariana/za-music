@@ -1,14 +1,11 @@
+import { Hero } from 'components/HomePage';
 import React from 'react';
-import styled from 'styled-components';
+import { ContentWrapper } from './styled';
 
-const ContentWrapper = styled.main`
-  padding: 0 120px;
-`;
-
-function HomePage() {
+function Home() {
   return (
     <ContentWrapper>
-      <div>Hero</div>
+      <Hero />
       <div>Genres</div>
       <div>Songs table</div>
       <aside>Artist</aside>
@@ -16,4 +13,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default Home;

@@ -1,6 +1,6 @@
 import React from 'react';
-import { styled, ThemeProvider } from 'styled-components';
-import { Logo, Search } from 'components/UI/Icons';
+import styled from 'styled-components';
+import { Logo, Search } from 'components/UI/Icons/Icons';
 import { Wrapper, LogoWrapper } from './Styled';
 import IconButton from 'components/UI/IconButton';
 

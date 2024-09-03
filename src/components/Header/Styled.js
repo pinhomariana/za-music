@@ -1,4 +1,4 @@
-import { styled, ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 
 export const Wrapper = styled.header`
   height: 118px;
