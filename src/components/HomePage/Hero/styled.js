@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.section`
   padding: 64px 0 64px 123px;
-  margin-top: 40px;
+  margin: 40px 0px 40px 0px;
   width: 100%;
   height: 382px;
   display: flex;
@@ -12,9 +12,7 @@ export const Wrapper = styled.section`
   background-color: ${({ theme }) => theme.colors.purple};
 `;
 
-export const TextWrapper = styled.div`
-  padding-left: 123px;
-`;
+export const TextWrapper = styled.div``;
 
 export const PlayButton = styled.button`
   border-radius: 20px;
