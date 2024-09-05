@@ -5,6 +5,8 @@ export const Wrapper = styled.section`
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 35px;
+  overflow: hidden;
 `;
 
 export const TitleRow = styled.div`
@@ -12,6 +14,7 @@ export const TitleRow = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  margin-bottom: 35px;
 `;
 
 export const ButtonsWrapper = styled.div`
@@ -25,4 +28,17 @@ export const Button = styled(IconButton)`
     background-color: ${({ theme }) => theme.colors.primary};
     opacity: 1;
   }
+`;
+
+export const GenreWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  min-height: 116px;
+`;
+
+export const GenresWrapper = styled.div`
+  display: flex;
 `;

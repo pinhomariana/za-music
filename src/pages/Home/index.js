@@ -1,6 +1,6 @@
 import { Hero } from 'components/HomePage';
 import React from 'react';
-import { ContentWrapper } from './styled';
+import { ContentWrapper, SongsTableAndArtistSection } from './styled';
 import Genres from 'components/HomePage/Genres';
 
 function Home() {
@@ -8,8 +8,10 @@ function Home() {
     <ContentWrapper>
       <Hero />
       <Genres />
-      <div>Songs table</div>
-      <aside>Artist</aside>
+      <SongsTableAndArtistSection>
+        <div>Songs table</div>
+        <aside>Artist</aside>
+      </SongsTableAndArtistSection>
     </ContentWrapper>
   );
 }

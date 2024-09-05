@@ -12,7 +12,9 @@ export const Wrapper = styled.section`
   background-color: ${({ theme }) => theme.colors.purple};
 `;
 
-export const TextWrapper = styled.div``;
+export const TextWrapper = styled.div`
+  max-width: 300px;
+`;
 
 export const PlayButton = styled.button`
   border-radius: 20px;

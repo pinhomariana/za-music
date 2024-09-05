@@ -1,18 +1,39 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
+import { Button, GenreWrapper, GenresWrapper } from './styled';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import Skeleton from 'react-loading-skeleton';
+
 import { ButtonsWrapper, TitleRow, Wrapper } from './styled';
 import { SectionSubtitle } from 'components/UI/Typography';
-import { Button } from './styled';
 import { ArrowLeft, ArrowRight } from 'components/UI/Icons/Icons';
 import GenreCards from './GenreCards';
 
+import 'react-loading-skeleton/dist/skeleton.css';
+import 'swiper/css';
+import 'swiper/css/pagination';
+
 function Genres() {
   const [genres, setGenres] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const sliderRef = useRef(null);
+
+  const handlePrev = () => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slidePrev();
+  };
+
+  const handleNext = () => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slideNext();
+  };
 
   useEffect(() => {
+    setIsLoading(true);
     const loadData = async () => {
       const response = await axios.get('/genre');
       setGenres(response.data.data.filter((genre) => genre.name.toLowerCase() !== 'all'));
+      setIsLoading(false);
     };
     loadData();
   }, []);
@@ -22,17 +43,27 @@ function Genres() {
       <TitleRow>
         <SectionSubtitle>Genrers</SectionSubtitle>
         <ButtonsWrapper>
-          <Button width={36} height={36} withBackground>
+          <Button width={36} height={36} withBackground onClick={handlePrev}>
             <ArrowLeft />
           </Button>
-          <Button width={36} height={36} withBackground>
+          <Button width={36} height={36} withBackground onClick={handleNext}>
             <ArrowRight />
           </Button>
         </ButtonsWrapper>
       </TitleRow>
-      {genres.map((genre) => (
-        <GenreCards key={genre.id} name={genre.name} backgroundImage={genre.picture_medium} />
-      ))}
+      <GenreWrapper>
+        {isLoading &&
+          [1, 2, 3, 4, 5, 6].map((block) => (
+            <Skeleton wrapper={GenresWrapper} height={116} width={220} borderRadius={25} />
+          ))}
+        <Swiper slidesPerView="auto" ref={sliderRef} spaceBetween={21}>
+          {genres?.map((genre) => (
+            <SwiperSlide key={genre.id} style={{ width: 'auto' }}>
+              <GenreCards name={genre.name} backgroundImage={genre.picture_medium} />{' '}
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </GenreWrapper>
     </Wrapper>
   );
 }
