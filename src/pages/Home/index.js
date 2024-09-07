@@ -1,8 +1,8 @@
 import { Artists, Hero } from 'components/HomePage';
 import React, { useEffect, useRef, useState } from 'react';
-import { ContentWrapper, SongsTableAndArtistSection } from './styled';
+import { ContentWrapper, Greytitle, SongsTableAndArtistSection, AsydeStyled } from './styled';
 import Genres from 'components/HomePage/Genres';
-import { SectionTitle } from 'components/UI/Typography';
+import { SectionSubtitle, SectionTitle } from 'components/UI/Typography';
 import axios from 'axios';
 
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -27,12 +27,17 @@ function Home() {
     <ContentWrapper>
       <Hero />
       <Genres />
+
       <SongsTableAndArtistSection>
-        <div>Songs table</div>
-        <aside>
+        <div>
+          <Greytitle>Global</Greytitle>
+          <SectionTitle>Tranding right now</SectionTitle>
+        </div>
+        <AsydeStyled>
+          <Greytitle>Global</Greytitle>
           <SectionTitle>Top Artists</SectionTitle>
           <Artists isLoading={isLoading} artists={chart?.artists.data}></Artists>
-        </aside>
+        </AsydeStyled>
       </SongsTableAndArtistSection>
     </ContentWrapper>
   );

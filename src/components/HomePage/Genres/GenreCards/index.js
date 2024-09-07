@@ -1,12 +1,12 @@
 import React from 'react';
-import { Wrapper } from './styled';
+import { Wrapper, GenreName } from './styled';
 import PropTypes from 'prop-types';
 import { SectionSubtitle } from 'components/UI/Typography';
 
 function GenreCards({ backgroundImage, name }) {
   return (
     <Wrapper backgroundImage={backgroundImage}>
-      <SectionSubtitle>{name}</SectionSubtitle>
+      <GenreName>{name}</GenreName>
     </Wrapper>
   );
 }

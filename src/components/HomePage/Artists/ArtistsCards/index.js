@@ -1,12 +1,13 @@
 import React from 'react';
-import { Wrapper } from './styled';
+import { ArtistName, Image, Wrapper } from './styled';
 import PropTypes from 'prop-types';
 import { SectionSubtitle } from 'components/UI/Typography';
 
 function ArtistsCards({ image, name }) {
   return (
     <Wrapper>
-      <SectionSubtitle>{name}</SectionSubtitle>
+      <Image src={image} alt={`${name}'s photo`}></Image>
+      <ArtistName>{name}</ArtistName>
     </Wrapper>
   );
 }

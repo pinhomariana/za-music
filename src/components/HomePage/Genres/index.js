@@ -53,7 +53,7 @@ function Genres() {
       </TitleRow>
       <GenreWrapper>
         {isLoading &&
-          [1, 2, 3, 4, 5, 6].map((block) => (
+          [...Array(8).keys()].map((block) => (
             <Skeleton wrapper={GenresWrapper} height={116} width={220} borderRadius={25} />
           ))}
         <Swiper slidesPerView="auto" ref={sliderRef} spaceBetween={21}>

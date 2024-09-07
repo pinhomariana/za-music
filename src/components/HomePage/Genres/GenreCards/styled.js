@@ -1,3 +1,4 @@
+import { SectionSubtitle } from 'components/UI/Typography';
 import styled from 'styled-components';
 
 export const Wrapper = styled.section`
@@ -21,4 +22,8 @@ export const Wrapper = styled.section`
     background-position: center;
     border-radius: 25px;
   }
+`;
+
+export const GenreName = styled(SectionSubtitle)`
+  z-index: ${({ theme }) => theme.zIndex['10']};
 `;
