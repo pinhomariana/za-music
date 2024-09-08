@@ -8,6 +8,9 @@ import axios from 'axios';
 import 'react-loading-skeleton/dist/skeleton.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { toast } from 'react-toastify';
+import { loadCharts } from 'components/Services/api';
+import TracksTable from 'components/TracksTable';
 
 function Home() {
   const [chart, setChart] = useState();
@@ -17,9 +20,14 @@ function Home() {
   useEffect(() => {
     setIsLoading(true);
     const loadData = async () => {
-      const response = await axios.get('/chart');
-      setChart(response.data);
-      setIsLoading(false);
+      try {
+        const response = await loadCharts();
+        setChart(response);
+      } catch (err) {
+        toast.error(err.message);
+      } finally {
+        setIsLoading(false);
+      }
     };
     loadData();
   }, []);
@@ -32,11 +40,12 @@ function Home() {
         <div>
           <Greytitle>Global</Greytitle>
           <SectionTitle>Tranding right now</SectionTitle>
+          <TracksTable tracks={chart?.tracks.data} />
         </div>
         <AsydeStyled>
           <Greytitle>Global</Greytitle>
           <SectionTitle>Top Artists</SectionTitle>
-          <Artists isLoading={isLoading} artists={chart?.artists.data}></Artists>
+          <Artists isLoading={isLoading} artists={chart?.artists?.data}></Artists>
         </AsydeStyled>
       </SongsTableAndArtistSection>
     </ContentWrapper>

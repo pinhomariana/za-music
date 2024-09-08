@@ -2,14 +2,8 @@ import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { theme } from 'Styles/Theme';
-import {
-  ButtonText,
-  MainTitle,
-  SectionSubtitle,
-  SectionTitle,
-  SubText,
-  Text,
-} from './components/UI/Typography';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { GlobalStyles } from 'Styles/Global';
 import Header from 'components/Header';
 import HomePage from 'pages/Home';
@@ -24,6 +18,18 @@ function App() {
         <GlobalStyles />
         <Header />
         <HomePage />
+        <ToastContainer
+          position="bottom-left"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
       </SkeletonTheme>
     </ThemeProvider>
   );

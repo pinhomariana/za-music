@@ -10,28 +10,28 @@ export const MainTitle = styled.h1`
 export const SectionTitle = styled.h2`
   font-family: ${({ theme }) => theme.fonts.poppins}, sans-serif;
   font-weight: ${({ theme }) => theme.fontWeights.bold};
-  font-size: 35px;
+  font-size: 33px;
   line-height: 52px;
 `;
 
 export const SectionSubtitle = styled.h3`
   font-family: ${({ theme }) => theme.fonts.poppins}, sans-serif;
   font-weight: ${({ theme }) => theme.fontWeights.bold};
-  font-size: 25px;
+  font-size: 23px;
   line-height: 37.5px;
 `;
 
 export const Text = styled.span`
   font-family: ${({ theme }) => theme.fonts.inter}, sans-serif;
   font-weight: ${({ theme }) => theme.fontWeights.semiBold};
-  font-size: 22px;
+  font-size: 20px;
   line-height: 26.63px;
 `;
 
 export const SubText = styled.span`
   font-family: ${({ theme }) => theme.fonts.inter}, sans-serif;
   font-weight: ${({ theme }) => theme.fontWeights.normal};
-  font-size: 20px;
+  font-size: 18px;
   line-height: 24.2px;
 `;
 

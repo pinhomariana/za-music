@@ -12,6 +12,8 @@ import GenreCards from './GenreCards';
 import 'react-loading-skeleton/dist/skeleton.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { loadGenres } from 'components/Services/api';
+import { toast } from 'react-toastify';
 
 function Genres() {
   const [genres, setGenres] = useState([]);
@@ -29,12 +31,18 @@ function Genres() {
   };
 
   useEffect(() => {
-    setIsLoading(true);
     const loadData = async () => {
-      const response = await axios.get('/genre');
-      setGenres(response.data.data.filter((genre) => genre.name.toLowerCase() !== 'all'));
-      setIsLoading(false);
+      try {
+        setIsLoading(true);
+        const response = await loadGenres();
+        setGenres(response);
+      } catch (err) {
+        toast.error(err.message);
+      } finally {
+        setIsLoading(false);
+      }
     };
+
     loadData();
   }, []);
 
