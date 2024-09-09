@@ -14,51 +14,7 @@ export const TableHead = styled.thead`
 `;
 
 export const TableHeading = styled.th`
-  padding: 15px 20px 15px 0;
-`;
-
-export const TableData = styled.td`
-  padding: 10px 50px 10px 0;
-`;
-
-export const TrackInfo = styled(TableData)`
-  display: flex;
-  align-items: center;
-  gap: 25px;
-`;
-
-export const TextWrapper = styled(TableData)`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-`;
-
-export const TrackInfoImage = styled.img`
-  width: 65px;
-  height: 65px;
-  border-radius: 15px;
-`;
-
-export const TrackTitle = styled(Text)`
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-`;
-
-export const TrackSubtitle = styled(SubText)`
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-`;
-
-export const SongNumber = styled(SubText)`
-  color: ${({ theme }) => theme.colors.secondaryGrey};
-`;
-
-export const StyledIconButton = styled(IconButton)`
-  margin: 0 auto;
+  padding: 10px 20px 15px ${(props) => (props.first ? '20px' : '0')};
 `;
 
 export const Line = styled.td`

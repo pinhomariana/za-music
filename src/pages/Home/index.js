@@ -1,6 +1,6 @@
 import { Artists, Hero } from 'components/HomePage';
 import React, { useEffect, useRef, useState } from 'react';
-import { ContentWrapper, Greytitle, SongsTableAndArtistSection, AsydeStyled } from './styled';
+import { Greytitle, SongsTableAndArtistSection, AsydeStyled } from './styled';
 import Genres from 'components/HomePage/Genres';
 import { SectionSubtitle, SectionTitle } from 'components/UI/Typography';
 import axios from 'axios';
@@ -11,6 +11,7 @@ import 'swiper/css/pagination';
 import { toast } from 'react-toastify';
 import { loadCharts } from 'components/Services/api';
 import TracksTable from 'components/TracksTable';
+import { ContentWrapper } from 'components/Layout';
 
 function Home() {
   const [chart, setChart] = useState();
@@ -40,7 +41,7 @@ function Home() {
         <div>
           <Greytitle>Global</Greytitle>
           <SectionTitle>Tranding right now</SectionTitle>
-          <TracksTable tracks={chart?.tracks.data} />
+          <TracksTable isLoading={isLoading} tracks={chart?.tracks.data} />
         </div>
         <AsydeStyled>
           <Greytitle>Global</Greytitle>
