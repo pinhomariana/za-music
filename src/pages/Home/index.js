@@ -12,6 +12,7 @@ import { toast } from 'react-toastify';
 import { loadCharts } from 'components/Services/api';
 import TracksTable from 'components/TracksTable';
 import { ContentWrapper } from 'components/Layout';
+import Player from 'components/Player';
 
 function Home() {
   const [chart, setChart] = useState();
@@ -36,7 +37,6 @@ function Home() {
     <ContentWrapper>
       <Hero />
       <Genres />
-
       <SongsTableAndArtistSection>
         <div>
           <Greytitle>Global</Greytitle>

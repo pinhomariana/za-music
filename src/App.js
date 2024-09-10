@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { GlobalStyles } from 'Styles/Global';
 import Header from 'components/Header';
 import HomePage from 'pages/Home';
+import Player from 'components/Player';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       >
         <GlobalStyles />
         <Header />
+        <Player />
         <HomePage />
         <ToastContainer
           position="bottom-left"
