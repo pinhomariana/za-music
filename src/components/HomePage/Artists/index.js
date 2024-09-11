@@ -1,16 +1,19 @@
-import React, { useEffect, useState, useRef } from 'react';
-import axios from 'axios';
-import { ArtistSkelentoWrapper, ArtistsWrapper, Wrapper, ArtistsLoadingWrapper } from './styled';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import Skeleton from 'react-loading-skeleton';
+// External libraries
+import React from 'react';
 import PropTypes from 'prop-types';
+import Skeleton from 'react-loading-skeleton';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
+// Local components
 import ArtistsCards from './ArtistsCards';
 
+// Styled components
+import { ArtistSkelentoWrapper, ArtistsWrapper, Wrapper, ArtistsLoadingWrapper } from './styled';
+
+// CSS files
 import 'react-loading-skeleton/dist/skeleton.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { SectionSubtitle } from 'components/UI/Typography';
 
 function Artists({ isLoading, artists }) {
   return (

@@ -1,18 +1,22 @@
-import { Artists, Hero } from 'components/HomePage';
+// External libraries
 import React, { useEffect, useRef, useState } from 'react';
-import { Greytitle, SongsTableAndArtistSection, AsydeStyled } from './styled';
-import Genres from 'components/HomePage/Genres';
-import { SectionSubtitle, SectionTitle } from 'components/UI/Typography';
-import axios from 'axios';
-
+import { toast } from 'react-toastify';
 import 'react-loading-skeleton/dist/skeleton.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { toast } from 'react-toastify';
+
+// Local services
 import { loadCharts } from 'components/Services/api';
+
+// Local components
+import { Artists, Hero } from 'components/HomePage';
+import Genres from 'components/HomePage/Genres';
 import TracksTable from 'components/TracksTable';
 import { ContentWrapper } from 'components/Layout';
-import Player from 'components/Player';
+import { SectionSubtitle, SectionTitle } from 'components/UI/Typography';
+
+// Styled components
+import { Greytitle, SongsTableAndArtistSection, AsydeStyled } from './styled';
 
 function Home() {
   const [chart, setChart] = useState();

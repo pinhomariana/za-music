@@ -1,9 +1,16 @@
+// External libraries
 import React from 'react';
+import PropTypes from 'prop-types';
+import Skeleton from 'react-loading-skeleton';
 
-import { HeartIcon, Play } from 'components/UI/Icons/Icons';
+// Utility functions
 import { secondsTominutes } from 'utils/time';
 
-import PropTypes from 'prop-types';
+// Local components
+import { HeartIcon, Play } from 'components/UI/Icons/Icons';
+import { SubText } from 'components/UI/Typography';
+
+// Styled components
 import {
   TableData,
   TrackInfo,
@@ -16,8 +23,6 @@ import {
   TracksRow,
   IconWrapper,
 } from './styled';
-import { SubText } from 'components/UI/Typography';
-import Skeleton from 'react-loading-skeleton';
 
 function TrackRow({ index, track }) {
   return (

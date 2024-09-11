@@ -1,5 +1,14 @@
+// External libraries
 import React from 'react';
-import PropTypes from 'prop-types';
+import Slider from 'rc-slider';
+
+// Components
+import IconButton from 'components/UI/IconButton';
+import { Play, SkipLeft, SkipRight, Volume } from 'components/UI/Icons/Icons';
+import { ContentWrapper } from 'components/Layout';
+import { Text } from 'components/UI/Typography';
+
+// Styled Components
 import {
   ArtistName,
   TrackImage,
@@ -9,11 +18,11 @@ import {
   ControlsWrapper,
   ProgressWrapper,
   TrackTime,
+  VolumeWrapper,
 } from './styled';
-import { ContentWrapper } from 'components/Layout';
-import { Text } from 'components/UI/Typography';
-import IconButton from 'components/UI/IconButton';
-import { Play, SkipLeft, SkipRight } from 'components/UI/Icons/Icons';
+
+// Theme
+import { theme } from 'Styles/Theme';
 
 const track = {
   id: 2402913845,
@@ -89,9 +98,25 @@ function Player(props) {
         </ControlsWrapper>
         <ProgressWrapper>
           <TrackTime>0:00</TrackTime>
-          <input type="range" />
+          <Slider
+            style={{ padding: '3px 0' }}
+            trackStyle={{ height: 8, backgroundColor: theme.colors.white }}
+            railStyle={{ height: 8, backgroundColor: theme.colors.darkGrey }}
+            handleStyle={{ border: 'none', backgroundColor: theme.colors.white, marginTop: -3 }}
+          />
           <TrackTime grey>2:30</TrackTime>
         </ProgressWrapper>
+        <VolumeWrapper>
+          <IconButton height={24} width={24}>
+            <Volume />
+          </IconButton>
+          <Slider
+            style={{ padding: '3px 0' }}
+            trackStyle={{ height: 8, backgroundColor: theme.colors.white }}
+            railStyle={{ height: 8, backgroundColor: theme.colors.darkGrey }}
+            handleStyle={{ border: 'none', backgroundColor: theme.colors.white, marginTop: -3 }}
+          />
+        </VolumeWrapper>
       </ContentWrapper>
     </Wrapper>
   );

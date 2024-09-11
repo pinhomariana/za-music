@@ -1,8 +1,13 @@
+// External libraries
 import React from 'react';
-import { Logo, Search } from 'components/UI/Icons/Icons';
-import { Wrapper, LogoWrapper } from './Styled';
+
+// Components
 import IconButton from 'components/UI/IconButton';
 import { ContentWrapper } from 'components/Layout';
+import { Logo, Search } from 'components/UI/Icons/Icons';
+
+// Styled components
+import { Wrapper, LogoWrapper } from './Styled';
 
 function Header() {
   return (

@@ -18,7 +18,7 @@ export const TrackInfoWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 25px;
-  width: 300px;
+  min-width: 300px;
 `;
 
 export const TrackImage = styled.img`
@@ -46,8 +46,18 @@ export const ProgressWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-left: 60px;
+  width: 100%;
 `;
 
 export const TrackTime = styled.div`
   color: ${(props) => (props.grey ? props.theme.colors.secondaryGrey : 'inherit')};
+  margin: 0 20px;
+`;
+
+export const VolumeWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-left: 60px;
+  min-width: 180px;
 `;

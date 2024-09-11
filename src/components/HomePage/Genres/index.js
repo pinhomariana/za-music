@@ -1,19 +1,24 @@
+// External libraries
 import React, { useEffect, useState, useRef } from 'react';
-import axios from 'axios';
-import { Button, GenreWrapper, GenresWrapper } from './styled';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { toast } from 'react-toastify';
 import Skeleton from 'react-loading-skeleton';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { ButtonsWrapper, TitleRow, Wrapper } from './styled';
-import { SectionSubtitle } from 'components/UI/Typography';
-import { ArrowLeft, ArrowRight } from 'components/UI/Icons/Icons';
+// Local services
+import { loadGenres } from 'components/Services/api';
+
+// Local components
 import GenreCards from './GenreCards';
 
+// Styled components
+import { Button, GenreWrapper, GenresWrapper, ButtonsWrapper, TitleRow, Wrapper } from './styled';
+import { SectionSubtitle } from 'components/UI/Typography';
+import { ArrowLeft, ArrowRight } from 'components/UI/Icons/Icons';
+
+// CSS files
 import 'react-loading-skeleton/dist/skeleton.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { loadGenres } from 'components/Services/api';
-import { toast } from 'react-toastify';
 
 function Genres() {
   const [genres, setGenres] = useState([]);

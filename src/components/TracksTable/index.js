@@ -1,10 +1,14 @@
+// External libraries
 import React from 'react';
 import PropTypes from 'prop-types';
-import { SubText, Text } from 'components/UI/Typography';
-import { Table, TableHead, TableHeading, Line } from './styled';
-
-import TrackRow from './TrackRow';
 import Skeleton from 'react-loading-skeleton';
+
+// Local components
+import { SubText, Text } from 'components/UI/Typography';
+import TrackRow from './TrackRow';
+
+// Styled components
+import { Table, TableHead, TableHeading, Line } from './styled';
 
 function TracksTable({ tracks, isLoading }) {
   return (

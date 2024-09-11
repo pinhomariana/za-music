@@ -1,7 +1,9 @@
+// External libraries
 import React from 'react';
-import { ArtistName, Image, Wrapper } from './styled';
 import PropTypes from 'prop-types';
-import { SectionSubtitle } from 'components/UI/Typography';
+
+// Styled components
+import { ArtistName, Image, Wrapper } from './styled';
 
 function ArtistsCards({ image, name }) {
   return (
