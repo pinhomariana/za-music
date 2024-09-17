@@ -52,6 +52,7 @@ export const ProgressWrapper = styled.div`
 export const TrackTime = styled.div`
   color: ${(props) => (props.grey ? props.theme.colors.secondaryGrey : 'inherit')};
   margin: 0 20px;
+  width: 80px;
 `;
 
 export const VolumeWrapper = styled.div`

@@ -1,5 +1,7 @@
 // External libraries
 import React from 'react';
+import styled, { ThemeProvider } from 'styled-components';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'rc-slider/assets/index.css';
