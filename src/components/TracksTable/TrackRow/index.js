@@ -1,5 +1,5 @@
 // External libraries
-import React from 'react';
+import React, { useCallback, useContext } from 'react';
 import PropTypes from 'prop-types';
 import Skeleton from 'react-loading-skeleton';
 
@@ -24,9 +24,9 @@ import {
   IconWrapper,
 } from './styled';
 
-function TrackRow({ index, track }) {
+function TrackRow({ index, track, onClick }) {
   return (
-    <TracksRow>
+    <TracksRow key={track?.id} onClick={() => onClick(track)}>
       <TableData>
         <SongNumber className="text">
           {track ? String(index + 1).padStart(2, '0') : <Skeleton width={27} height={27} />}
@@ -68,6 +68,7 @@ function TrackRow({ index, track }) {
 }
 
 TrackRow.propTypes = {
+  onClick: PropTypes.func,
   track: PropTypes.shape({
     id: PropTypes.number,
     title: PropTypes.string,

@@ -1,5 +1,5 @@
 // External libraries
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import Slider from 'rc-slider';
 
 // Components
@@ -24,6 +24,8 @@ import {
 // Theme
 import { theme } from 'Styles/Theme';
 import { secondsTominutes } from 'utils/time';
+import { PlayerContext, PlayerDispatchContext } from 'context/playerContext';
+import { actions } from 'context/actions';
 
 const track = {
   id: 2402913845,
@@ -76,21 +78,20 @@ const track = {
 };
 
 function Player() {
+  const { track, isPlaying } = useContext(PlayerContext);
+  const dispatch = useContext(PlayerDispatchContext);
+
   const audioRef = useRef();
   const [playerState, setPlayerState] = useState({
-    isPlaying: false,
     currentTime: 0,
     duration: 0,
     volume: 0.5,
   });
 
-  const togglePlay = () => {
-    setPlayerState((prev) => ({ ...prev, isPlaying: !prev.isPlaying }));
-    audioRef?.current?.play();
-  };
+  const togglePlay = () => dispatch({ type: actions.TOGGLE_PLAY });
 
   const toggleVolume = () => {
-    const newVolume = playerState.volume > 0 ? 0 : 1;
+    const newVolume = playerState.volume > 0 ? 0 : 0.5;
     onVolumeChange(newVolume);
   };
 
@@ -124,12 +125,16 @@ function Player() {
 
     audioRef.current.volume = playerState.volume;
 
-    if (playerState.isPlaying) {
+    if (isPlaying) {
       audioRef.current.play();
     } else {
       audioRef.current.pause();
     }
-  }, [audioRef, track, playerState.isPlaying, playerState.volume]);
+  }, [audioRef, track, isPlaying, playerState.volume]);
+
+  if (!track) {
+    return null;
+  }
 
   return (
     <Wrapper>
@@ -153,7 +158,7 @@ function Player() {
             <SkipLeft />
           </IconButton>
           <IconButton onClick={togglePlay} width={55} height={55} withBackground>
-            {playerState.isPlaying ? <Pause /> : <Play />}
+            {isPlaying ? <Pause /> : <Play />}
           </IconButton>
           <IconButton>
             <SkipRight />
