@@ -67,14 +67,22 @@ function Genres() {
       <GenreWrapper>
         {isLoading &&
           [...Array(8).keys()].map((block) => (
-            <Skeleton wrapper={GenresWrapper} height={116} width={220} borderRadius={25} />
+            <Skeleton
+              key={block}
+              wrapper={GenresWrapper}
+              height={116}
+              width={220}
+              borderRadius={25}
+            />
           ))}
         <Swiper slidesPerView="auto" ref={sliderRef} spaceBetween={21}>
-          {genres?.map((genre) => (
-            <SwiperSlide key={genre.id} style={{ width: 'auto' }}>
-              <GenreCards name={genre.name} backgroundImage={genre.picture_medium} />{' '}
-            </SwiperSlide>
-          ))}
+          {genres?.map((genre) => {
+            return (
+              <SwiperSlide key={genre.id} style={{ width: 'auto' }}>
+                <GenreCards name={genre.name} backgroundImage={genre.picture_medium} />{' '}
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
       </GenreWrapper>
     </Wrapper>

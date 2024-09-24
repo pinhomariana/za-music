@@ -17,7 +17,7 @@ export const Wrapper = styled.section`
     position: absolute;
     content: '';
     opacity: 0.4;
-    background-image: url(${(props) => props.backgroundImage});
+    background-image: url(${(props) => props.$bg});
     background-size: cover;
     background-position: center;
     border-radius: 25px;

@@ -12,7 +12,7 @@ import { Wrapper, LogoWrapper } from './Styled';
 function Header() {
   return (
     <Wrapper>
-      <ContentWrapper display="flex" items="center" content="space-between">
+      <ContentWrapper display="flex" $items="center" content="space-between">
         <LogoWrapper>
           <Logo />
         </LogoWrapper>

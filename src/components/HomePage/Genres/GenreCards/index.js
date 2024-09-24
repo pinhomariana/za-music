@@ -7,7 +7,7 @@ import { Wrapper, GenreName } from './styled';
 
 function GenreCards({ backgroundImage, name }) {
   return (
-    <Wrapper backgroundImage={backgroundImage}>
+    <Wrapper $bg={backgroundImage}>
       <GenreName>{name}</GenreName>
     </Wrapper>
   );

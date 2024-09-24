@@ -7,7 +7,7 @@ import Skeleton from 'react-loading-skeleton';
 // Local components
 import { SubText, Text } from 'components/UI/Typography';
 import TrackRow from './TrackRow';
-import { PlayerDispatchContext } from 'context/playerContext';
+import { PlayerContext, PlayerDispatchContext } from 'context/playerContext';
 import { actions } from 'context/actions';
 
 // Styled components
@@ -15,20 +15,26 @@ import { Table, TableHead, TableHeading, Line } from './styled';
 
 function TracksTable({ tracks, isLoading }) {
   const dispatch = useContext(PlayerDispatchContext);
+  const { track, isPlaying } = useContext(PlayerContext);
 
-  const handleTrackClick = (track) => {
-    dispatch({
-      type: actions.SET_TRACKS_DATA,
-      track: track,
-      tracks: tracks,
-      isPlaying: true,
-    });
+  const handleTrackClick = (clickedTrack) => {
+    if (track?.id === clickedTrack.id) {
+      dispatch({ type: actions.TOGGLE_PLAY });
+    } else {
+      dispatch({
+        type: actions.SET_TRACKS_DATA,
+        track: clickedTrack,
+        tracks: tracks,
+        isPlaying: true,
+      });
+    }
   };
+
   return (
     <Table cellSpacing={0}>
       <TableHead>
         <tr>
-          <TableHeading first>
+          <TableHeading $first={1}>
             <SubText>{isLoading ? <Skeleton width={25} /> : '#'}</SubText>
           </TableHeading>
           <TableHeading>
@@ -50,12 +56,13 @@ function TracksTable({ tracks, isLoading }) {
           <Line colSpan={5} />
         </tr>
         {!isLoading &&
-          tracks?.map((track, index) => (
+          tracks?.map((currentTrack, index) => (
             <TrackRow
+              isPlaying={track?.id === currentTrack.id && isPlaying}
               onClick={handleTrackClick}
               isLoading={isLoading}
-              key={track.id}
-              track={track}
+              key={currentTrack.id}
+              track={currentTrack}
               index={index}
             />
           ))}

@@ -38,7 +38,7 @@ export const TracksRow = styled.tr`
   }
 `;
 
-export const TextWrapper = styled(TableData)`
+export const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;

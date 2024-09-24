@@ -1,5 +1,6 @@
 import { SubText } from 'components/UI/Typography';
 import styled from 'styled-components';
+import { Text } from 'components/UI/Typography';
 
 export const Wrapper = styled.div`
   height: 105px;
@@ -28,14 +29,25 @@ export const TrackImage = styled.img`
 `;
 
 export const TrackInfoTextWrapper = styled.div`
+  padding-right: 15px;
   display: flex;
   flex-direction: column;
 `;
 
 export const ArtistName = styled(SubText)`
   color: ${({ theme }) => theme.colors.secondaryGrey};
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 `;
 
+export const TrackTitle = styled(Text)`
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+`;
 export const ControlsWrapper = styled.div`
   display: flex;
   align-items: center;
