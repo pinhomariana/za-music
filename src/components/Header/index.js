@@ -8,17 +8,22 @@ import { Logo, Search } from 'components/UI/Icons/Icons';
 
 // Styled components
 import { Wrapper, LogoWrapper } from './Styled';
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
     <Wrapper>
       <ContentWrapper display="flex" $items="center" content="space-between">
         <LogoWrapper>
-          <Logo />
+          <Link to="/">
+            <Logo />
+          </Link>
         </LogoWrapper>
-        <IconButton width={58} height={58} withBackground>
-          <Search />
-        </IconButton>
+        <Link to="search">
+          <IconButton width={58} height={58} withBackground>
+            <Search />
+          </IconButton>
+        </Link>
       </ContentWrapper>
     </Wrapper>
   );

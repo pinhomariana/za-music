@@ -1,9 +1,10 @@
 import { SubText } from 'components/UI/Typography';
 import styled from 'styled-components';
 import { Text } from 'components/UI/Typography';
+import { PLAYER_HEIGHT } from 'common/constants';
 
 export const Wrapper = styled.div`
-  height: 105px;
+  height: ${PLAYER_HEIGHT}px;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.secondaryBlack};
   position: fixed;
@@ -62,7 +63,7 @@ export const ProgressWrapper = styled.div`
 `;
 
 export const TrackTime = styled.div`
-  color: ${(props) => (props.grey ? props.theme.colors.secondaryGrey : 'inherit')};
+  color: ${(props) => (props.$grey ? props.theme.colors.secondaryGrey : 'inherit')};
   margin: 0 20px;
   width: 80px;
 `;

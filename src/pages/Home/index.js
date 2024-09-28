@@ -38,7 +38,7 @@ function Home() {
     loadData();
   }, []);
   return (
-    <ContentWrapper>
+    <main>
       <Hero />
       <Genres />
       <SongsTableAndArtistSection>
@@ -53,7 +53,7 @@ function Home() {
           <Artists isLoading={isLoading} artists={chart?.artists?.data}></Artists>
         </AsydeStyled>
       </SongsTableAndArtistSection>
-    </ContentWrapper>
+    </main>
   );
 }
 

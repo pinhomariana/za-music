@@ -23,6 +23,11 @@ export const GlobalStyles = styled.createGlobalStyle`
     font: inherit;
   }
 
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
   .rc-slider-handle-dragging {
     box-shadow: 0 0 0 5px ${({ theme }) => theme.colors.white} !important;
   }

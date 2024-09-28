@@ -7,15 +7,16 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'rc-slider/assets/index.css';
 
 // Local components
-import Header from 'components/Header';
 import HomePage from 'pages/Home';
-import Player from 'components/Player';
 
 // Styled components and global styles
 import { theme } from 'Styles/Theme';
 import { GlobalStyles } from 'Styles/Global';
 import { initialState, playerReducer } from 'context/playerReducer';
 import { PlayerContext, PlayerDispatchContext } from 'context/playerContext';
+import { Route, Routes } from 'react-router-dom';
+import Search from 'pages/Home/Search';
+import Layout from 'components/Layout';
 
 function App() {
   const [state, dispatch] = useReducer(playerReducer, initialState);
@@ -29,9 +30,12 @@ function App() {
             highlightColor={theme.colors.lightWhite}
           >
             <GlobalStyles />
-            <Header />
-            <Player />
-            <HomePage />
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<HomePage />} />
+                <Route path="/search" element={<Search />} />
+              </Route>
+            </Routes>
             <ToastContainer
               position="bottom-left"
               autoClose={5000}

@@ -102,7 +102,7 @@ function Player() {
           onEnded={handleNextSong}
         />
         <TrackInfoWrapper>
-          <TrackImage src={track.album.cover} alt={`${track?.album.title}'s photo`} />
+          <TrackImage src={track.album?.cover} alt={`${track?.album.title}'s photo`} />
           <TrackInfoTextWrapper>
             <TrackTitle>{track.title}</TrackTitle>
             <ArtistName>{track.artist.name}</ArtistName>
@@ -132,7 +132,7 @@ function Player() {
             railStyle={{ height: 8, backgroundColor: theme.colors.darkGrey }}
             handleStyle={{ border: 'none', backgroundColor: theme.colors.white, marginTop: -3 }}
           />
-          <TrackTime grey>{secondsTominutes(playerState.duration)}</TrackTime>
+          <TrackTime $grey="true">{secondsTominutes(playerState.duration)}</TrackTime>
         </ProgressWrapper>
         <VolumeWrapper>
           <IconButton height={24} width={24}>

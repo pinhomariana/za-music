@@ -35,20 +35,22 @@ function TrackRow({ index, track, onClick, isPlaying }) {
       </TableData>
       <TrackInfo>
         {track ? (
-          <TrackInfoImage src={track?.album.cover_small} alt={track?.title} />
+          <TrackInfoImage src={track?.album?.cover_small} alt={track?.title} />
         ) : (
           <Skeleton width={65} height={65} borderRadius={15} />
         )}
         <TextWrapper>
           <TrackTitle>{track?.title || <Skeleton width={150} />}</TrackTitle>
-          <TrackSubtitle>{track?.artist.name || <Skeleton width={150} />}</TrackSubtitle>
+          <TrackSubtitle>{track?.artist?.name || <Skeleton width={150} />}</TrackSubtitle>
         </TextWrapper>
       </TrackInfo>
       <TableData>
-        <SubText>{secondsTominutes(track?.duration) || <Skeleton width={50} />}</SubText>
+        <SubText>
+          {track?.duration ? secondsTominutes(track?.duration) : <Skeleton width={50} />}
+        </SubText>
       </TableData>
       <TableData>
-        <TrackSubtitle>{track?.album.title || <Skeleton width={150} />}</TrackSubtitle>
+        <TrackSubtitle>{track?.album?.title || <Skeleton width={150} />}</TrackSubtitle>
       </TableData>
       <TableData>
         {track ? (
