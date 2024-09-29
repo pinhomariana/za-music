@@ -9,6 +9,7 @@ export const initialState = {
 export const playerReducer = (state, action) => {
   switch (action.type) {
     case actions.SET_TRACKS_DATA:
+      console.log('Reducer received action:', action);
       return {
         ...state,
         track: action.track,

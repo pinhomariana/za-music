@@ -17,6 +17,7 @@ import { PlayerContext, PlayerDispatchContext } from 'context/playerContext';
 import { Route, Routes } from 'react-router-dom';
 import Search from 'pages/Home/Search';
 import Layout from 'components/Layout';
+import Error from 'pages/Error';
 
 function App() {
   const [state, dispatch] = useReducer(playerReducer, initialState);
@@ -34,6 +35,7 @@ function App() {
               <Route path="/" element={<Layout />}>
                 <Route index element={<HomePage />} />
                 <Route path="/search" element={<Search />} />
+                <Route path="*" element={<Error />} />
               </Route>
             </Routes>
             <ToastContainer

@@ -3,6 +3,17 @@ import axios from 'axios';
 const API_CHART_URL = '/chart';
 const API_GENRES_URL = '/genre';
 const API_SEARCH_URL = '/search';
+const API_RADIO_URL = '/radio/37151/tracks';
+
+export const loadRadio = async () => {
+  try {
+    const response = await axios(API_RADIO_URL);
+    if (!response.data.data) throw Error();
+    return response.data.data;
+  } catch (err) {
+    throw Error('Failed to load Radio!');
+  }
+};
 
 export const loadCharts = async () => {
   try {

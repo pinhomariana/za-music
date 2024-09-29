@@ -1,12 +1,13 @@
 // External libraries
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-loading-skeleton/dist/skeleton.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import PropTypes from 'prop-types';
 
 // Local services
-import { loadCharts } from 'components/Services/api';
+import { loadCharts, loadRadio } from 'components/Services/api';
 
 // Local components
 import { Artists, Hero } from 'components/HomePage';
@@ -17,9 +18,11 @@ import { SectionSubtitle, SectionTitle } from 'components/UI/Typography';
 
 // Styled components
 import { Greytitle, SongsTableAndArtistSection, AsydeStyled } from './styled';
+import { PlayerDispatchContext } from 'context/playerContext';
 
 function Home() {
   const [chart, setChart] = useState();
+  const [radio, setRadio] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const sliderRef = useRef(null);
 
@@ -27,8 +30,10 @@ function Home() {
     setIsLoading(true);
     const loadData = async () => {
       try {
-        const response = await loadCharts();
-        setChart(response);
+        const chartResponse = await loadCharts();
+        const radioResponse = await loadRadio();
+        setRadio(radioResponse);
+        setChart(chartResponse);
       } catch (err) {
         toast.error(err.message);
       } finally {
@@ -39,7 +44,7 @@ function Home() {
   }, []);
   return (
     <main>
-      <Hero />
+      <Hero tracks={radio} />
       <Genres />
       <SongsTableAndArtistSection>
         <div>
