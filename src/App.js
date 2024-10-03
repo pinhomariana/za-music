@@ -5,6 +5,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'rc-slider/assets/index.css';
+import { ErrorBoundary } from 'react-error-boundary';
 
 // Local components
 import HomePage from 'pages/Home';
@@ -31,13 +32,15 @@ function App() {
             highlightColor={theme.colors.lightWhite}
           >
             <GlobalStyles />
-            <Routes>
-              <Route path="/" element={<Layout />}>
-                <Route index element={<HomePage />} />
-                <Route path="/search" element={<Search />} />
-                <Route path="*" element={<Error />} />
-              </Route>
-            </Routes>
+            <ErrorBoundary fallback={<Error isErrorPage={true} />}>
+              <Routes>
+                <Route path="/" element={<Layout />}>
+                  <Route index element={<HomePage />} />
+                  <Route path="/search" element={<Search />} />
+                  <Route path="*" element={<Error />} />
+                </Route>
+              </Routes>
+            </ErrorBoundary>
             <ToastContainer
               position="bottom-left"
               autoClose={5000}

@@ -6,4 +6,6 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: calc(100vh - ${PLAYER_HEIGHT}px - ${HEADER_HEIGHT}px);
+  display: flex;
+  flex-direction: column;
 `;

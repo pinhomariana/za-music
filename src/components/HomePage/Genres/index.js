@@ -76,13 +76,14 @@ function Genres() {
             />
           ))}
         <Swiper slidesPerView="auto" ref={sliderRef} spaceBetween={21}>
-          {genres?.map((genre) => {
-            return (
-              <SwiperSlide key={genre.id} style={{ width: 'auto' }}>
-                <GenreCards name={genre.name} backgroundImage={genre.picture_medium} />{' '}
-              </SwiperSlide>
-            );
-          })}
+          {!isLoading &&
+            genres?.map((genre) => {
+              return (
+                <SwiperSlide key={genre.id} style={{ width: 'auto' }}>
+                  <GenreCards name={genre.name} backgroundImage={genre.picture_medium} />{' '}
+                </SwiperSlide>
+              );
+            })}
         </Swiper>
       </GenreWrapper>
     </Wrapper>

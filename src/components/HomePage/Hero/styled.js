@@ -1,3 +1,4 @@
+import { StyledButton } from 'components/UI/Button/styled';
 import styled from 'styled-components';
 
 export const Wrapper = styled.section`
@@ -16,16 +17,7 @@ export const TextWrapper = styled.div`
   max-width: 300px;
 `;
 
-export const PlayButton = styled.button`
-  border-radius: 20px;
-  border-style: none;
-  height: 63px;
-  width: 152px;
-  padding: 18px 35px;
-  margin-top: 52px;
-  cursor: pointer;
-  background-color: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.white};
+export const PlayButton = styled(StyledButton)`
   display: flex;
   align-items: center;
   gap: 12px;
@@ -35,12 +27,4 @@ export const PlayButton = styled.button`
     2px 6px 6px rgba(7, 21, 44, 0.09),
     0px 1px 3px rgba(7, 21, 44, 0.05),
     0px 0px 0px rgba(7, 21, 44, 0.02);
-
-  &:hover {
-    opacity: 0.8;
-  }
-
-  &:disabled {
-    opacity: 0.5;
-  }
 `;

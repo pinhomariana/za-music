@@ -27,11 +27,10 @@ function Home() {
   const sliderRef = useRef(null);
 
   useEffect(() => {
-    setIsLoading(true);
     const loadData = async () => {
       try {
-        const chartResponse = await loadCharts();
-        const radioResponse = await loadRadio();
+        setIsLoading(true);
+        const [chartResponse, radioResponse] = await Promise.all([loadCharts(), loadRadio()]);
         setRadio(radioResponse);
         setChart(chartResponse);
       } catch (err) {
