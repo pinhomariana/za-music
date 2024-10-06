@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 import PropTypes from 'prop-types';
 
 // Local services
-import { loadCharts, loadRadio } from 'components/Services/api';
+import { loadCharts, loadRadio } from 'Services/api';
 
 // Local components
 import { Artists, Hero } from 'components/HomePage';

@@ -15,7 +15,7 @@ import { Table, TableHead, TableHeading, Line } from './styled';
 
 function TracksTable({ tracks, isLoading }) {
   const dispatch = useContext(PlayerDispatchContext);
-  const { track, isPlaying } = useContext(PlayerContext);
+  const { track, isPlaying, savedTrackIds } = useContext(PlayerContext);
 
   const handleTrackClick = (clickedTrack) => {
     if (track?.id === clickedTrack.id) {
@@ -28,6 +28,10 @@ function TracksTable({ tracks, isLoading }) {
         isPlaying: true,
       });
     }
+  };
+
+  const handleSaveTrackClick = (trackId) => {
+    dispatch({ type: actions.TOGGLE_SAVE_TRACK, trackId });
   };
 
   return (
@@ -64,6 +68,8 @@ function TracksTable({ tracks, isLoading }) {
               key={currentTrack.id}
               track={currentTrack}
               index={index}
+              handleSaveTrackClick={handleSaveTrackClick}
+              isSaved={savedTrackIds.includes(currentTrack.id)}
             />
           ))}
         {isLoading && [...Array(8).keys()].map((block) => <TrackRow key={block} index={block} />)}

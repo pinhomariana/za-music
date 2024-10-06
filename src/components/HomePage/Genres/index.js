@@ -5,7 +5,7 @@ import Skeleton from 'react-loading-skeleton';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Local services
-import { loadGenres } from 'components/Services/api';
+import { loadGenres } from 'Services/api';
 
 // Local components
 import GenreCards from './GenreCards';
@@ -19,6 +19,7 @@ import { ArrowLeft, ArrowRight } from 'components/UI/Icons/Icons';
 import 'react-loading-skeleton/dist/skeleton.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { Link } from 'react-router-dom';
 
 function Genres() {
   const [genres, setGenres] = useState([]);
@@ -80,7 +81,9 @@ function Genres() {
             genres?.map((genre) => {
               return (
                 <SwiperSlide key={genre.id} style={{ width: 'auto' }}>
-                  <GenreCards name={genre.name} backgroundImage={genre.picture_medium} />{' '}
+                  <Link to={`/genres/${genre.id}`}>
+                    <GenreCards name={genre.name} backgroundImage={genre.picture_medium} />{' '}
+                  </Link>
                 </SwiperSlide>
               );
             })}

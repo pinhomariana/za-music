@@ -7,7 +7,7 @@ import Skeleton from 'react-loading-skeleton';
 import { secondsTominutes } from 'utils/time';
 
 // Local components
-import { HeartIcon, Pause, Play } from 'components/UI/Icons/Icons';
+import { Heart, HeartIcon, Pause, Play } from 'components/UI/Icons/Icons';
 import { SubText } from 'components/UI/Typography';
 
 // Styled components
@@ -23,8 +23,9 @@ import {
   TracksRow,
   IconWrapper,
 } from './styled';
+import { theme } from 'Styles/Theme';
 
-function TrackRow({ index, track, onClick, isPlaying }) {
+function TrackRow({ index, track, onClick, isPlaying, handleSaveTrackClick, isSaved }) {
   return (
     <TracksRow key={track?.id} onClick={() => onClick(track)}>
       <TableData>
@@ -54,8 +55,15 @@ function TrackRow({ index, track, onClick, isPlaying }) {
       </TableData>
       <TableData>
         {track ? (
-          <StyledIconButton width={70} height={70}>
-            <HeartIcon />
+          <StyledIconButton
+            width={70}
+            height={70}
+            onClick={(event) => {
+              event.stopPropagation();
+              handleSaveTrackClick(track.id);
+            }}
+          >
+            <Heart isSaved={isSaved} />
           </StyledIconButton>
         ) : (
           <StyledIconButton width={70} height={70}>
@@ -83,6 +91,8 @@ TrackRow.propTypes = {
   }),
   index: PropTypes.number,
   isPlaying: PropTypes.bool,
+  handleSaveTrackClick: PropTypes.func,
+  isSaved: PropTypes.bool,
 };
 
 export default TrackRow;

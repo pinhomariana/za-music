@@ -8,6 +8,7 @@ import { ReactComponent as ArrowcIcon } from 'assets/arrow.svg';
 import { ReactComponent as SerchIcon } from 'assets/search.svg';
 import { ReactComponent as HeartIcon } from 'assets/heart.svg';
 import { ReactComponent as Logo } from 'assets/logo.svg';
+import { theme } from 'Styles/Theme';
 
 const Play = styled(PlayIcon)`
   fill: ${(props) => props.color || 'white'};
@@ -61,9 +62,11 @@ const Search = styled(SerchIcon)`
   }
 `;
 
-const heart = styled(HeartIcon)`
+const Heart = styled(HeartIcon)`
   path {
-    fill: ${(props) => props.fillColor || 'white'};
+    fill: ${(props) => (props.isSaved ? theme.colors.white : 'transparent')};
+    stroke: white;
+    transition: fill 0.3s ease;
   }
 `;
 
@@ -77,6 +80,6 @@ export {
   ArrowLeft,
   ArrowRight,
   Search,
-  HeartIcon,
+  Heart,
   Logo,
 };

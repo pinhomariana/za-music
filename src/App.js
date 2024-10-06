@@ -1,5 +1,5 @@
 // External libraries
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { ToastContainer, toast } from 'react-toastify';
@@ -8,7 +8,6 @@ import 'rc-slider/assets/index.css';
 import { ErrorBoundary } from 'react-error-boundary';
 
 // Local components
-import HomePage from 'pages/Home';
 
 // Styled components and global styles
 import { theme } from 'Styles/Theme';
@@ -16,12 +15,17 @@ import { GlobalStyles } from 'Styles/Global';
 import { initialState, playerReducer } from 'context/playerReducer';
 import { PlayerContext, PlayerDispatchContext } from 'context/playerContext';
 import { Route, Routes } from 'react-router-dom';
-import Search from 'pages/Home/Search';
-import Layout from 'components/Layout';
-import Error from 'pages/Error';
+
+import { setStorageValue } from 'Services/localStorage';
+
+import AppRouter from 'AppRouter';
 
 function App() {
   const [state, dispatch] = useReducer(playerReducer, initialState);
+
+  useEffect(() => {
+    setStorageValue('savedTrackIds', state.savedTrackIds);
+  }, [state.savedTrackIds]);
 
   return (
     <PlayerContext.Provider value={state}>
@@ -32,15 +36,7 @@ function App() {
             highlightColor={theme.colors.lightWhite}
           >
             <GlobalStyles />
-            <ErrorBoundary fallback={<Error isErrorPage={true} />}>
-              <Routes>
-                <Route path="/" element={<Layout />}>
-                  <Route index element={<HomePage />} />
-                  <Route path="/search" element={<Search />} />
-                  <Route path="*" element={<Error />} />
-                </Route>
-              </Routes>
-            </ErrorBoundary>
+            <AppRouter />
             <ToastContainer
               position="bottom-left"
               autoClose={5000}

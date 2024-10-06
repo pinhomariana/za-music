@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { InputWrapper, NothingFoundText, TableTitle, Wrapper } from './styled';
 import { toast } from 'react-toastify';
-import { search } from 'components/Services/api';
+import { search } from 'Services/api';
 import TracksTable from 'components/TracksTable';
 import Input from 'components/UI/Input';
 import SearchIcon from 'assets/search.svg';
