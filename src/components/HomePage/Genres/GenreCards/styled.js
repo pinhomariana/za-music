@@ -1,3 +1,4 @@
+import { device } from 'Styles/Breakpoints';
 import { SectionSubtitle } from 'components/UI/Typography';
 import styled from 'styled-components';
 
@@ -21,6 +22,11 @@ export const Wrapper = styled.section`
     background-size: cover;
     background-position: center;
     border-radius: 25px;
+  }
+
+  ${device.sm} {
+    width: 137px;
+    height: 95px;
   }
 `;
 

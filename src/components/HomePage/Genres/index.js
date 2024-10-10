@@ -20,8 +20,11 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Link } from 'react-router-dom';
+import { useWindowSize } from 'assets/hooks/useWindowSize';
+import { breakpoints } from 'Styles/Breakpoints';
 
 function Genres() {
+  const { width } = useWindowSize();
   const [genres, setGenres] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const sliderRef = useRef(null);
@@ -55,7 +58,7 @@ function Genres() {
   return (
     <Wrapper>
       <TitleRow>
-        <SectionSubtitle>Genrers</SectionSubtitle>
+        <SectionSubtitle>Genres</SectionSubtitle>
         <ButtonsWrapper>
           <Button width={36} height={36} withBackground onClick={handlePrev}>
             <ArrowLeft />
@@ -71,12 +74,16 @@ function Genres() {
             <Skeleton
               key={block}
               wrapper={GenresWrapper}
-              height={116}
-              width={220}
+              height={window.innerWidth < breakpoints.md ? 95 : 116}
+              width={window.innerWidth < breakpoints.md ? 137 : 220}
               borderRadius={25}
             />
           ))}
-        <Swiper slidesPerView="auto" ref={sliderRef} spaceBetween={21}>
+        <Swiper
+          slidesPerView="auto"
+          ref={sliderRef}
+          spaceBetween={window.innerWidth < breakpoints.md ? 9 : 20}
+        >
           {!isLoading &&
             genres?.map((genre) => {
               return (

@@ -1,15 +1,24 @@
 import styled from 'styled-components';
 import { SubText, Text } from 'components/UI/Typography';
 import IconButton from 'components/UI/IconButton';
+import { device } from 'Styles/Breakpoints';
 
 export const TableData = styled.td`
   padding: 10px 50px 10px 0;
+
+  ${device.md} {
+    padding: 10px 20px 10px 0;
+  }
 `;
 
 export const TrackInfo = styled(TableData)`
   display: flex;
   align-items: center;
   gap: 25px;
+
+  ${device.md} {
+    gap: 10px;
+  }
 `;
 
 export const TracksRow = styled.tr`
@@ -48,6 +57,12 @@ export const TrackInfoImage = styled.img`
   width: 65px;
   height: 65px;
   border-radius: 15px;
+
+  ${device.sm} {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+  }
 `;
 
 export const TrackTitle = styled(Text)`
@@ -55,6 +70,11 @@ export const TrackTitle = styled(Text)`
   overflow: hidden;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+
+  ${device.md} {
+    font-size: 18px;
+    line-height: 22px;
+  }
 `;
 
 export const TrackSubtitle = styled(SubText)`
@@ -62,6 +82,11 @@ export const TrackSubtitle = styled(SubText)`
   overflow: hidden;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+
+  ${device.md} {
+    font-size: 16px;
+    line-height: 19px;
+  }
 `;
 
 export const SongNumber = styled(SubText)`
