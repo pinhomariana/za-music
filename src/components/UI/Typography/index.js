@@ -6,6 +6,11 @@ export const MainTitle = styled.h1`
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   font-size: 60px;
   line-height: 90px;
+
+  ${device.sm} {
+    font-size: 30px;
+    line-height: 45px;
+  }
 `;
 
 export const SectionTitle = styled.h2`

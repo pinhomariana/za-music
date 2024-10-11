@@ -14,16 +14,27 @@ import { ArtistSkelentoWrapper, ArtistsWrapper, Wrapper, ArtistsLoadingWrapper }
 import 'react-loading-skeleton/dist/skeleton.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { useWindowSize } from 'assets/hooks/useWindowSize';
+import { breakpoints } from 'Styles/Breakpoints';
 
 function Artists({ isLoading, artists }) {
+  const { width } = useWindowSize();
+  const isMobileLayout = width < breakpoints.md;
+
   return (
     <Wrapper>
       <ArtistsWrapper>
         {isLoading &&
           [...Array(8).keys()].map((block) => (
             <ArtistsLoadingWrapper key={block}>
-              <Skeleton wrapper={ArtistSkelentoWrapper} key={block} height={95} width={95} circle />
-              <Skeleton height={27} />
+              <Skeleton
+                wrapper={ArtistSkelentoWrapper}
+                key={block}
+                height={isMobileLayout ? 75 : 95}
+                width={isMobileLayout ? 75 : 95}
+                circle
+              />
+              <Skeleton height={isMobileLayout ? 19 : 27} />
             </ArtistsLoadingWrapper>
           ))}
 
